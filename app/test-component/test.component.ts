@@ -30,8 +30,9 @@ export class TestComponent {
                 console.log('====== succes: ', content);
                 this.htmlContent = content;
             }, (err: any) => {
-                console.log('======= err: ', err);
+                console.log('======= error: ', err);
                 console.dir(err);
+                this.htmlContent = "Error!";
             })
     }
 }
