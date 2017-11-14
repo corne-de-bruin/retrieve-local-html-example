@@ -32,7 +32,7 @@ export class TestComponent {
             }, (err: any) => {
                 console.log('======= error: ', err);
                 console.dir(err);
-                this.htmlContent = "Error!";
+                this.htmlContent = "Error! " + err.toString();
             })
     }
 }
