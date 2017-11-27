@@ -1,0 +1,54 @@
+<!--The class of the Gridlayout cannot use the className variable. When bundling it does not apply the styling.-->
+<GridLayout
+    rows="60"
+    columns="*,auto,auto,*"
+    [col]="col"
+    [row]="row"
+    class="btn"
+    [class.btn--inverse]="isInverseButton"
+    [class.btn--busy]="isButtonStateBusy"
+    [class.btn--disabled]="isButtonStateDisabled"
+    [class.btn--success]="isButtonStateSuccess"
+    [class.btn--confirm]="isButtonStateConfirm">
+
+    <ActivityIndicator
+        *ngIf="isButtonStateBusy"
+        busy="true"
+        class="btn__spinner"
+        row="0"
+        [col]="indicatorCol ? indicatorCol : 1">
+    </ActivityIndicator> 
+
+    <Label
+        *ngIf="buttonNeedsCheckMark"
+        class="btn__check"
+        row="0"
+        col="1">
+    </Label>
+
+    <StackLayout
+        class="btn__label"
+        row="0"
+        col="2">
+        <Label
+            *ngIf="isButtonStateBusy"
+            class="btn__label-text"
+            [text]="busyText">
+        </Label>
+        <Label
+            *ngIf="!isButtonStateBusy"
+            class="btn__label-text"
+            [text]="displayText">
+        </Label>
+    </StackLayout>
+
+    <Button
+        #button
+        row="0"
+        colspan="4"
+        [automationText]="automationText"
+        class="btn__background"
+        (tap)="doTap($event)"
+        [isEnabled]="isEnabled">
+    </Button>
+</GridLayout>

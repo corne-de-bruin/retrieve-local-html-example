@@ -1,0 +1,10 @@
+<StackLayout>
+    <Label text="this is the second page"></Label>
+    <ed-button text="go to first page"
+            automationText="goToFirstPage"
+            (tap)="goToFirstPage()">
+    </ed-button>
+    <StackLayout *ngFor="let i of list">
+        <Label text="number: {{i}}"></Label>
+    </StackLayout>
+</StackLayout>

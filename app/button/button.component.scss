@@ -1,0 +1,100 @@
+@import '../../scss/global.scss';
+
+/*
+Currently the keyframes aren't used because of https://jira.essent.nl/jira/browse/EPB-67524
+
+@TODO put back transistion like this:
+.btn--busy {
+  animation-name: toBusyOrDisabled;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+*/
+
+@keyframes toSuccess {
+  0% {
+    background-color: $secondary-color-light;
+  }
+
+  100% {
+    background-color: $primary-color;
+  }
+}
+
+@keyframes toBusyOrDisabled {
+  0% {
+    background-color: $secondary-color;
+  }
+
+  100% {
+    background-color: $secondary-color-light;
+  }
+}
+
+@keyframes toConfirm {
+  0% {
+    background-color: $secondary-color;
+  }
+
+  100% {
+    background-color: $orange;
+  }
+}
+
+.btn {
+  height: 60;
+  @include button-colors();
+  @include button-typography();
+
+  &--inverse {
+    @include button-colors-reverse();
+    @include button-reverse-typography();
+  }
+}
+
+.btn--busy,
+.btn--disabled {
+  background-color: $secondary-color-light;
+}
+
+.btn--success {
+  background-color: $primary-color;
+}
+
+.btn--confirm {
+  background-color: $orange;
+}
+
+.btn__background {
+  background-color: transparent;
+}
+
+.btn__label {
+  opacity: 1;
+
+  .btn--disabled & {
+    opacity: 0.6;
+  }
+}
+
+.btn__label-text {
+  text-transform: uppercase;
+}
+
+.btn__spinner,
+.btn__check {
+  height: 25;
+  width: 25;
+  margin-right: 10;
+}
+
+.btn__check {
+  background-image: url("res://checkmark");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.btn__label,
+.btn__check {
+  vertical-align: center;
+}
